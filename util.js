@@ -12,7 +12,20 @@ const generateUser = ({
   createdAt
 });
 
+const generateArticle = ({
+  name = `${faker.name.firstName()} ${faker.name.lastName()}`,
+  description = faker.lorem.sentence(),
+  type,
+  tags = []
+} = {}) => ({
+  name,
+  description,
+  type,
+  tags
+});
+
 module.exports = {
   mapUser: generateUser,
+  mapArticle: generateArticle,
   getRandomFirstName: () => faker.name.firstName()
 };
